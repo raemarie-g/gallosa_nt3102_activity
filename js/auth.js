@@ -146,6 +146,7 @@ $(document).ready(function () {
                 }
             },
             submitHandler: function (form) {
+                sessionStorage.setItem("loggedIn", "true");
                 window.location.href = "dashboard.html";
             }
         }));
@@ -177,6 +178,7 @@ $(document).ready(function () {
                 }
             },
             submitHandler: function (form) {
+                sessionStorage.setItem("loggedIn", "true");
                 window.location.href = "dashboard.html";
             }
         }));

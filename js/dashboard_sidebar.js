@@ -1,5 +1,3 @@
-// 
-
 // dashboard.js — sidebar toggle behavior
 document.addEventListener("DOMContentLoaded", function () {
     var toggleBtn = document.getElementById("sidebarToggle");

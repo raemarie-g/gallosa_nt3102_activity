@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 <head>
+    <!-- to check if naka login na ba si user -->
+    <script>
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+        window.location.replace("login.html");
+    }
+    </script>
+
     <title>Home — Brgy IT Service Request System</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -259,6 +266,6 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"
     ></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard_sidebar.js"></script>
 </body>
 </html>
