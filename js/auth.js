@@ -1,22 +1,47 @@
+$(document).ready(function(){
+            $("#myForm").validate({
 
+                rules:{
 
-//password visibility toggle
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".auth-toggle-pw").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            var targetId = btn.getAttribute("data-target");
-            var input = document.getElementById(targetId);
-            if (!input) return;
+                    name:{
+                        required: true,
+                        minlength: 5,
+                        maxlength: 15
+                    },
 
-            var icon = btn.querySelector("i");
-            var isHidden = input.type === "password";
-            input.type = isHidden ? "text" : "password";
+                    email:{
+                        required: true,
+                    },
 
-            if (icon) {
-                icon.classList.toggle("bi-eye", !isHidden);
-                icon.classList.toggle("bi-eye-slash", isHidden);
-            }
-            btn.setAttribute("aria-label", isHidden ? "Hide password" : "Show password");
+                    password:{
+                        required: true,
+                        minlength: 8,
+                        maxlength: 15
+                    }
+                },
+
+                messages:{
+
+                    name:{
+                        required: "par bawal yan",
+                        minlength: "mas mahaba pa dyan par",
+                        maxlength: "oops sobra na"
+                    },
+
+                    email:{
+                        required: "eto din par",
+                        email: "tama ba yan?"
+                    },
+
+                    password:{
+                        required: "maglagay ka ngani",
+                        minlength: "habaan mo pa",
+                        maxlength: "sobrang haba naman"
+                    }
+                },
+
+    
+
+            });
+
         });
-    });
-});

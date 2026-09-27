@@ -162,7 +162,7 @@
                                 <div class="mb-3">
                                     <label for="offPassword" class="form-label auth-label">Password</label>
                                     <div class="auth-password-wrap">
-                                        <input type="password" class="form-control" id="offPassword" name="password" placeholder="Create a password" autocomplete="new-password" />
+                                        <input type="password" class="form-control" id="offPassword" name="password" placeholder="Create a password" autocomplete="new-password"/>
                                         <button type="button" class="auth-toggle-pw" data-target="offPassword" aria-label="Show password">
                                             <i class="bi bi-eye"></i>
                                         </button>
@@ -172,18 +172,11 @@
                                 <div class="mb-3">
                                     <label for="offConfirmPassword" class="form-label auth-label">Confirm Password</label>
                                     <div class="auth-password-wrap">
-                                        <input type="password" class="form-control" id="offConfirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" />
+                                        <input type="password" class="form-control" id="offConfirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password"/>
                                         <button type="button" class="auth-toggle-pw" data-target="offConfirmPassword" aria-label="Show password">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
-                                </div>
-
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="offTerms" />
-                                    <label class="form-check-label auth-meta-row" for="offTerms" style="display:inline;">
-                                        I agree to the <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>
-                                    </label>
                                 </div>
 
                                 <a href="login.html" class="btn auth-submit w-100">Create Account</a>
@@ -201,11 +194,17 @@
         </div>
     </main>
 
+    <!-- Bootstrap -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"
     ></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.22.1/jquery.validate.min.js" integrity="sha512-qu7dMuIm2f0KcKZ3BOoP4c+Hn+r4E8PbD2Ro4rmKsOyheCxcwhzQpf6SojA76dn+owqfANzfTFUTkGA+HpHjOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/auth.js"></script>
+
+    <script src="password_visibility.js"></script>
 </body>
 </html>
