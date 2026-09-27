@@ -1,0 +1,17 @@
+:root {
+    /* Base / Neutral Colors */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-gray: #CDCDCD;
+
+    /* Purple Palette */
+    --color-1: #BB86FF;
+    --color-2: #9967EA;
+    --color-3: #673AB7;
+    --color-4: #562BA6;
+    --color-5: #362158;
+    --color-6: #1A073B;
+
+    /* Additional Purple */
+    --color-7: #522E93;
+}

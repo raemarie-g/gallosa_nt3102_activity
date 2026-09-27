@@ -1,0 +1,14 @@
+| Color     | Purpose                                |
+| --------- | -------------------------------------- |
+| #000000 | Main text, icons, strong contrast      |
+| #FFFFFF | Cards, forms, text on dark backgrounds |
+| #CDCDCD | Borders, dividers, disabled elements   |
+| #BB86FF | Highlights, accents                    |
+| #9967EA | Secondary buttons, hover effects       |
+| #673AB7 | Primary brand color                    |
+| #562BA6 | Primary button hover/active            |
+| #522E93 | Secondary dark purple                  |
+| #362158 | Headers, dark cards                    |
+| #1A073B | Main dark background                   |
+
+
