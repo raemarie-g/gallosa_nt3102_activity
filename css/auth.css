@@ -241,3 +241,7 @@
         padding: 22px 18px;
     }
 }
+
+.auth-card .invalid-feedback {
+    color: var(--color-white);
+}
