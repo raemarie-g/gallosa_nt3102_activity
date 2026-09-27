@@ -1,4 +1,6 @@
-// auth.js — password visibility toggle
+
+
+//password visibility toggle
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".auth-toggle-pw").forEach(function (btn) {
         btn.addEventListener("click", function () {
