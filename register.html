@@ -69,18 +69,7 @@
                     <!-- Resident Registration -->
                     <div class="tab-pane fade show active" id="regResident" role="tabpanel" aria-labelledby="reg-resident-tab" tabindex="0">
                         <div class="card-body">
-                            <div>
-                                <div class="row g-3 mb-3">
-                                    <div class="col-6">
-                                        <label for="resFirstName" class="form-label auth-label">First Name</label>
-                                        <input type="text" class="form-control" id="resFirstName" name="firstName" placeholder="Juan" />
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="resLastName" class="form-label auth-label">Last Name</label>
-                                        <input type="text" class="form-control" id="resLastName" name="lastName" placeholder="dela Cruz" />
-                                    </div>
-                                </div>
-
+                            <form id="residentRegisterForm" novalidate>
                                 <div class="mb-3">
                                     <label for="resEmail" class="form-label auth-label">Email</label>
                                     <input type="email" class="form-control" id="resEmail" name="email" placeholder="abc@mail.com" autocomplete="email" />
@@ -111,19 +100,19 @@
                                     </div>
                                 </div>
 
-                                <a href="login.html" class="btn auth-submit w-100">Create Account</a>
+                                <button type="submit" class="btn auth-submit w-100">Create Account</button>
 
                                 <p class="auth-footer-text mt-3 mb-0">
                                     Already have an account? <a href="login.html">Login</a>
                                 </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
                     <!-- Official Registration -->
                     <div class="tab-pane fade" id="regOfficial" role="tabpanel" aria-labelledby="reg-official-tab" tabindex="0">
                         <div class="card-body">
-                            <div>
+                            <form id="officialRegisterForm" novalidate>
                                 <div class="mb-3">
                                     <label for="offPosition" class="form-label auth-label">Official Position *</label>
                                     <select class="form-select" id="offPosition" name="position">
@@ -136,17 +125,6 @@
                                         <option value="sk_kagawad">SK Kagawad</option>
                                         <option value="other">Other Authorized Official</option>
                                     </select>
-                                </div>
-
-                                <div class="row g-3 mb-3">
-                                    <div class="col-6">
-                                        <label for="offFirstName" class="form-label auth-label">First Name</label>
-                                        <input type="text" class="form-control" id="offFirstName" name="firstName" placeholder="Maria" />
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="offLastName" class="form-label auth-label">Last Name</label>
-                                        <input type="text" class="form-control" id="offLastName" name="lastName" placeholder="Santos" />
-                                    </div>
                                 </div>
 
                                 <div class="mb-3">
@@ -179,12 +157,12 @@
                                     </div>
                                 </div>
 
-                                <a href="login.html" class="btn auth-submit w-100">Create Account</a>
+                                <button type="submit" class="btn auth-submit w-100">Create Account</button>
 
                                 <p class="auth-footer-text mt-3 mb-0">
                                     Already have an account? <a href="login.html">Login</a>
                                 </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
