@@ -27,7 +27,7 @@ $(document).ready(function () {
             /^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/.test(value);
     }, "Password must be at least 8 characters and include an uppercase letter, a number, and a symbol.");
 
-    // Custom rule: officials use their real name/title, e.g. "Captain Juan"
+// Custom rule: officials use their real name/title, e.g. "Captain Juan"
     $.validator.addMethod("officialName", function (value, element) {
         return this.optional(element) || /^[A-Za-z.'-]+(?: [A-Za-z.'-]+)*$/.test(value);
     }, "Use your real name or title, e.g. \"Captain Juan\" (letters and spaces only).");
@@ -37,9 +37,9 @@ $(document).ready(function () {
         return this.optional(element) || value.trim().toLowerCase() === "admin";
     }, "Invalid email/username or password.");
 
-// password must literally be "1234"
+// password must literally be "12345"
     $.validator.addMethod("isAdminPass", function (value, element) {
-        return this.optional(element) || value === "1234";
+        return this.optional(element) || value === "12345";
     }, "Invalid email/username or password.");
    
     if ($("#residentRegisterForm").length) {
@@ -76,7 +76,12 @@ $(document).ready(function () {
                     required: "Please confirm your password.",
                     equalTo: "Passwords do not match."
                 }
+            },
+            submitHandler: function (form) {
+                alert("Account created successfully! You can now log in.");
+                window.location.href = "login.html";
             }
+            
         }));
     }
 
@@ -121,6 +126,10 @@ $(document).ready(function () {
                     required: "Please confirm your password.",
                     equalTo: "Passwords do not match."
                 }
+            },
+            submitHandler: function (form) {
+                alert("Account created successfully! You can now log in.");
+                window.location.href = "login.html";
             }
         }));
     }
@@ -147,6 +156,7 @@ $(document).ready(function () {
             },
             submitHandler: function (form) {
                 sessionStorage.setItem("loggedIn", "true");
+                sessionStorage.setItem("username", $("#residentLogin").val());
                 window.location.href = "dashboard.html";
             }
         }));
@@ -179,6 +189,7 @@ $(document).ready(function () {
             },
             submitHandler: function (form) {
                 sessionStorage.setItem("loggedIn", "true");
+                sessionStorage.setItem("username", $("#officialLogin").val());
                 window.location.href = "dashboard.html";
             }
         }));

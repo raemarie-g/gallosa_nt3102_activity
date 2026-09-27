@@ -3,9 +3,9 @@
 <head>
     <!-- to check if naka login na ba si user -->
     <script>
-    if (sessionStorage.getItem("loggedIn") !== "true") {
-        window.location.replace("login.html");
-    }
+        if (sessionStorage.getItem("loggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
     </script>
 
     <title>Home — Brgy IT Service Request System</title>
@@ -100,7 +100,7 @@
 
             <!-- Hero -->
             <section class="home-hero">
-                <span class="eyebrow on-dark">Welcome back, Juan!</span>
+                <span class="eyebrow on-dark">Welcome back, <span id="welcomeName"></span>!</span>
                 <h1>Your Barangay Services, Made Simpler.</h1>
                 <p>Submit requests, track their progress, and access barangay services in one convenient place.</p>
                 <div class="d-flex gap-2 flex-wrap">
@@ -267,5 +267,8 @@
         crossorigin="anonymous"
     ></script>
     <script src="js/dashboard_sidebar.js"></script>
+    <script>
+        document.getElementById("welcomeName").textContent = sessionStorage.getItem("username");
+    </script>
 </body>
 </html>
