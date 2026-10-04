@@ -103,7 +103,7 @@
                                 <button type="submit" class="btn auth-submit w-100">Create Account</button>
 
                                 <p class="auth-footer-text mt-3 mb-0">
-                                    Already have an account? <a href="login.html">Login</a>
+                                    Already have an account? <a href="login.php">Login</a>
                                 </p>
                             </form>
                         </div>

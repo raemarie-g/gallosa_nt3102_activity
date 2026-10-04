@@ -104,7 +104,7 @@
                                 <button type="submit" class="btn auth-submit w-100">Login</button>
 
                                 <p class="auth-footer-text mt-3 mb-0">
-                                    Don't have an account? <a href="register.html">Register</a>
+                                    Don't have an account? <a href="register.php">Register</a>
                                 </p>
                             </form>
                         </div>
@@ -160,7 +160,7 @@
                                 <button type="submit" class="btn auth-submit w-100">Login</button>
 
                                 <p class="auth-footer-text mt-3 mb-0">
-                                    Don't have an account? <a href="register.html">Register</a>
+                                    Don't have an account? <a href="register.php">Register</a>
                                 </p>
                             </form>
                         </div>

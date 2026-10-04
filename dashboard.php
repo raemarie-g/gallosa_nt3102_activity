@@ -4,7 +4,7 @@
     <!-- to check if naka login na ba si user -->
     <script>
         if (sessionStorage.getItem("loggedIn") !== "true") {
-            window.location.replace("login.html");
+            window.location.replace("login.php");
         }
     </script>
 
@@ -63,7 +63,7 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <nav class="sidebar-nav">
-                <a href="dashboard.html" class="sidebar-link active text-decoration-none">
+                <a href="dashboard.php" class="sidebar-link active text-decoration-none">
                     <i class="bi bi-house-door-fill"></i> Home
                 </a>
 
@@ -89,7 +89,7 @@
                 <a href="#" class="sidebar-link text-decoration-none">
                     <i class="bi bi-bell-fill"></i> Notifications
                 </a>
-                <a href="login.html" class="sidebar-link text-decoration-none">
+                <a href="login.php" class="sidebar-link text-decoration-none">
                     <i class="bi bi-person-fill"></i> Logout
                 </a>
             </nav>
