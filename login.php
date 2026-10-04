@@ -2,21 +2,10 @@
 <html lang="en" data-bs-theme="light">
 <head>
     <title>Login — Brgy IT Service Request System</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <?php 
 
-    <!-- Bootstrap CSS v5.3.8 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous"
-    />
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/auth.css" />
+    include 'phpfiles/header.php';
+    ?>
 </head>
 
 <body>

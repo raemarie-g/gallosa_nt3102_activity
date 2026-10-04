@@ -182,50 +182,6 @@
                 </div>
             </section>
 
-            <!-- Coming soon -->
-            <!-- <section class="mt-4">
-                <span class="eyebrow">Coming Soon</span>
-                <h2 class="section-heading mt-1">Future Capabilities</h2>
-                <div class="row g-3">
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-envelope-fill"></i>
-                            <span>Email / SMS Notifications</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-qr-code"></i>
-                            <span>QR Code Verification</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <span>Online Document Generation</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-calendar3"></i>
-                            <span>Facility Calendar</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-shield-lock-fill"></i>
-                            <span>Secure Authentication</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="coming-soon-card">
-                            <i class="bi bi-server"></i>
-                            <span>Centralized Records</span>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
         </main>
     </div>
 
