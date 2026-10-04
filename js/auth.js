@@ -79,7 +79,7 @@ $(document).ready(function () {
             },
             submitHandler: function (form) {
                 alert("Account created successfully! You can now log in.");
-                window.location.href = "login.html";
+                window.location.href = "login.php";
             }
             
         }));
@@ -129,7 +129,7 @@ $(document).ready(function () {
             },
             submitHandler: function (form) {
                 alert("Account created successfully! You can now log in.");
-                window.location.href = "login.html";
+                window.location.href = "login.php";
             }
         }));
     }
@@ -157,7 +157,7 @@ $(document).ready(function () {
             submitHandler: function (form) {
                 sessionStorage.setItem("loggedIn", "true");
                 sessionStorage.setItem("username", $("#residentLogin").val());
-                window.location.href = "dashboard.html";
+                window.location.href = "dashboard.php";
             }
         }));
     }
@@ -190,7 +190,7 @@ $(document).ready(function () {
             submitHandler: function (form) {
                 sessionStorage.setItem("loggedIn", "true");
                 sessionStorage.setItem("username", $("#officialLogin").val());
-                window.location.href = "dashboard.html";
+                window.location.href = "dashboard.php";
             }
         }));
     }
