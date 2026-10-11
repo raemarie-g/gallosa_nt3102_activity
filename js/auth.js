@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // error message style
+    // Shared validation styling and error placement.
     var commonSettings = {
         errorClass: "invalid-feedback d-block",
         validClass: "is-valid",
@@ -21,178 +21,139 @@ $(document).ready(function () {
         }
     };
 
-// Custom rule: at least 8 chars, 1 uppercase, 1 number, 1 symbol
+    // Password requirements: 8 characters, 1 uppercase letter, 1 number, and 1 symbol.
     $.validator.addMethod("strongPassword", function (value, element) {
         return this.optional(element) ||
             /^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/.test(value);
     }, "Password must be at least 8 characters and include an uppercase letter, a number, and a symbol.");
 
-// Custom rule: officials use their real name/title, e.g. "Captain Juan"
+    // Official names may contain letters, spaces, periods, apostrophes, and hyphens.
     $.validator.addMethod("officialName", function (value, element) {
         return this.optional(element) || /^[A-Za-z.'-]+(?: [A-Za-z.'-]+)*$/.test(value);
     }, "Use your real name or title, e.g. \"Captain Juan\" (letters and spaces only).");
 
-// username/email must literally be "admin"
+    // Demo login username.
     $.validator.addMethod("isAdminUser", function (value, element) {
         return this.optional(element) || value.trim().toLowerCase() === "admin";
     }, "Invalid email/username or password.");
 
-// password must literally be "12345"
+    // Demo login password.
     $.validator.addMethod("isAdminPass", function (value, element) {
         return this.optional(element) || value === "12345";
     }, "Invalid email/username or password.");
-   
-    if ($("#residentRegisterForm").length) {
-        $("#residentRegisterForm").validate($.extend({}, commonSettings,{
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                username: {
-                    required: true
-                },
-                password: {
-                    required: true,
-                    strongPassword: true
-                },
-                confirmPassword: {
-                    required: true,
-                    equalTo: "#resPassword"
-                }
+
+    // Rules and messages shared by both registration forms.
+    var registrationSettings = {
+        rules: {
+            email: {
+
+                required: true,
+
+                email: true
+
             },
-            messages: {
-                email: {
-                    required: "Email is required.",
-                    email: "Enter a valid email address."
-                },
-                username: {
-                    required: "Username is required."
-                },
-                password: {
-                    required: "Password is required."
-                },
-                confirmPassword: {
-                    required: "Please confirm your password.",
-                    equalTo: "Passwords do not match."
-                }
+            username: { required: true },
+            password: {
+
+                required: true,
+
+                strongPassword: true
+
             },
-            submitHandler: function (form) {
-                alert("Account created successfully! You can now log in.");
-                window.location.href = "login.php";
+            confirmPassword: { required: true }
+        },
+        messages: {
+            email: {
+                required: "Email is required.",
+                email: "Enter a valid email address."
+            },
+            username: { required: "Username is required." },
+            password: { required: "Password is required." },
+            confirmPassword: {
+                required: "Please confirm your password.",
+                equalTo: "Passwords do not match."
             }
-            
-        }));
+        },
+        submitHandler: function (form) {
+            alert("Account created successfully! You can now log in.");
+            window.location.href = "login.php";
+        }
+    };
+
+    // Rules and messages shared by both login forms.
+    var loginSettings = {
+        rules: {
+            login: {
+
+                required: true,
+
+                isAdminUser: true
+
+            },
+            password: {
+
+                required: true,
+
+                isAdminPass: true
+
+            }
+        },
+        messages: {
+            login: { required: "Email or username is required." },
+            password: { required: "Password is required." }
+        }
+    };
+
+    // Additional requirements for official forms.
+    var officialSettings = {
+        rules: { position: { required: true } },
+        messages: { position: { required: "Please select your position." } }
+    };
+
+    // Deep-copy settings so form-specific overrides do not change shared rules.
+    function setupValidation(selector, settings, overrides) {
+        var form = $(selector);
+
+        if (!form.length) return;
+
+        form.validate($.extend(true, {}, commonSettings, settings, overrides));
     }
 
-    if ($("#officialRegisterForm").length) {
-        $("#officialRegisterForm").validate($.extend({}, commonSettings,{
-            rules: {
-                position: {
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                username: {
-                    required: true,
-                    officialName: true
-                },
-                password: {
-                    required: true,
-                    strongPassword: true
-                },
-                confirmPassword: {
-                    required: true,
-                    equalTo: "#offPassword"
-                }
-            },
-            messages: {
-                position: {
-                    required: "Please select your position."
-                },
-                email: {
-                    required: "Email is required.",
-                    email: "Enter a valid email address."
-                },
-                username: {
-                    required: "Username is required."
-                },
-                password: {
-                    required: "Password is required."
-                },
-                confirmPassword: {
-                    required: "Please confirm your password.",
-                    equalTo: "Passwords do not match."
-                }
-            },
-            submitHandler: function (form) {
-                alert("Account created successfully! You can now log in.");
-                window.location.href = "login.php";
-            }
-        }));
+    // Reuse login behavior with the username field belonging to each form.
+    function loginHandler(usernameSelector) {
+        return function (form) {
+            sessionStorage.setItem("loggedIn", "true");
+            sessionStorage.setItem("username", $(usernameSelector).val());
+            window.location.href = "dashboard.php";
+        };
     }
 
-    if ($("#residentLoginForm").length) {
-        $("#residentLoginForm").validate($.extend({}, commonSettings,{
+    // Connect each form to its shared settings and specific requirements.
+    setupValidation("#residentRegisterForm", registrationSettings, {
+        rules: { confirmPassword: { equalTo: "#resPassword" } }
+    });
+
+    setupValidation(
+        "#officialRegisterForm",
+        registrationSettings,
+        $.extend(true, {}, officialSettings, {
             rules: {
-                login: {
-                    required: true,
-                    isAdminUser: true
-                },
-                password: {
-                    required: true,
-                    isAdminPass: true
-                }
-            },
-            messages: {
-                login: {
-                    required: "Email or username is required."
-                },
-                password: {
-                    required: "Password is required."
-                }
-            },
-            submitHandler: function (form) {
-                sessionStorage.setItem("loggedIn", "true");
-                sessionStorage.setItem("username", $("#residentLogin").val());
-                window.location.href = "dashboard.php";
+                username: { officialName: true },
+                confirmPassword: { equalTo: "#offPassword" }
             }
-        }));
-    }
-    if ($("#officialLoginForm").length) {
-        $("#officialLoginForm").validate($.extend({}, commonSettings,{
-            rules: {
-                position: {
-                    required: true
-                },
-                login: {
-                    required: true,
-                    isAdminUser: true
-                },
-                password: {
-                    required: true,
-                    isAdminPass: true
-                }
-            },
-            messages: {
-                position: {
-                    required: "Please select your position."
-                },
-                login: {
-                    required: "Email or username is required."
-                },
-                password: {
-                    required: "Password is required."
-                }
-            },
-            submitHandler: function (form) {
-                sessionStorage.setItem("loggedIn", "true");
-                sessionStorage.setItem("username", $("#officialLogin").val());
-                window.location.href = "dashboard.php";
-            }
-        }));
-    }
+        })
+    );
+
+    setupValidation("#residentLoginForm", loginSettings, {
+        submitHandler: loginHandler("#residentLogin")
+    });
+
+    setupValidation(
+        "#officialLoginForm",
+        loginSettings,
+        $.extend(true, {}, officialSettings, {
+            submitHandler: loginHandler("#officialLogin")
+        })
+    );
 
 });
